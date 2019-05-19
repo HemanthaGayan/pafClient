@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+</head>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" th:href="@{/View/}" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#" th:href="@{/order/allproducts}" class="w3-bar-item w3-button w3-padding-large w3-hide-small"  >PRODUCTS</a>
+    <a  href="/order/allorder" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ORDERS</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+</div>
+</div>
+</div>
+
+
+    <div class="container">
+      <div th:if="${not #lists.isEmpty(products)}">
+          <h1>Product List</h1>
+        <table class="highlight">
+            <thead>
+            </thead>
+            
+                <tbody>
+                    <tr th:each="product: ${products}">
+                        <td>
+                        <form method="post"  id="signUp" action="/order/addorder"  role="form">
+                            <!--<div class="form-title " > Registration Form</div>-->
+                            <div class="form-group">
+                                <label for="txtFname"><span class="req" ></span> ProductName:</label>
+                                <input class="form-control" type="text" name="ProductName" id="txtFname" required="true" th:value="${product.product_name}" readonly="readonly" />
+                            </div>
+                             <div class="form-group">
+                                <label for="txtFname"><span class="req" ></span> Produc Price:</label>
+                                <input class="form-control" type="text" name="Price" id="txtFname" required="true" th:value="${product.product_price}" readonly="readonly" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFname"><span class="req" ></span> Quantity:</label>
+                                <input class="form-control" type="text" name="Quantity" id="txtFname" required="true"  />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="submit" value = "Add To Order"/>
+                            </div>
+                            </form>
+                        </td>
+                        
+                         
+                         
+                          
+                         
+                    </tr>
+                 
+                 </tbody>
+              
+        </table>
+      </div>
+    </div>
+    <div>
+    		
+    </div>
+</body>
+</html>

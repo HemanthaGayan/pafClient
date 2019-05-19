@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a th:href="@{/View/}"  class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a  th:href="@{/order/allproducts}" class="w3-bar-item w3-button w3-padding-large w3-hide-small"  >PRODUCTS</a>
+    <a  href="/order/allorder" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ORDERS</a>
+    <a  th:href="@{/View/login}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGIN</a>
+    
+   </div>
+   <div class="container">
+   <table class="highlight">
+   		<tr>
+   		<td><form method="get" th:action="@{/order/id}" th:object="${order}">
+   		<input type ="text"  placeholder="Order Id" th:field="*{order1}">
+   		<input type="submit" value="Get Order">
+   		</form></td>
+   		</tr>
+   </table>
+   </div>
+    </div>
+      
+    
+  
+     <br><br><br><br><br><br><br><br><br>
+       
+    <div class="container">
+      <div th:if="${not #lists.isEmpty(orders)}">
+          <h1>Order List</h1>
+        <table class="highlight">
+            <thead>
+            <tr>
+                <th>Orderid</th>
+                <th>CustomerId</th>
+                <th>TotalPrice</th>
+                <th>CreateAt</th>
+                 <th>UpdateAt</th>
+                 <th>ProductName</th>
+                 <th>Price</th>
+                 <th>Quantiy</th>
+                 
+            </tr>
+            </thead>
+                <tbody>
+                    <tr th:each="order: ${orders}">
+                        <td th:text="${order.orderId}"></td>
+                         <td th:text="${order.customerId}"></td>
+                          <td th:text="${order.totalPrice}"></td>
+                           <td th:text="${order.createAt}"></td>
+                            <td th:text="${order.updateAt}"></td>
+                               <td th:text="${order.productName}"></td>
+                                  <td th:text="${order.price}"></td>
+                                     <td th:text="${order.quantity}"></td>
+                                     
+                        
+                    </tr>
+                </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+    		<p th:text="${order}"></p>
+    </div>
+</body>
+</html>
