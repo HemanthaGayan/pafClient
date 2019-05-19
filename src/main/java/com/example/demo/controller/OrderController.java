@@ -77,9 +77,23 @@ public class OrderController {
 		model.addAttribute("order",order);
 		return "updateorder";
 	}
-	@RequestMapping("/confirm")
+	@PostMapping("/confirm")
 	public String confirmOrder(@ModelAttribute Order order) {
 		orderClientService.updateOrder(order);
 		return "first";
 	}
+	
+	@PostMapping("/deleteorder")
+	public String deleteShipDetail(@ModelAttribute Order order,Model model) {
+		
+		orderClientService.deleteOrder(order);
+		model.addAttribute("orders",order);
+		return "redirect:allorder";
+		
+		
+	}
+
+	
+	
+
 }

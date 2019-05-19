@@ -41,7 +41,13 @@ public class OrderClientService {
 	public void updateOrder(Order order) {
 		RestTemplate restTemplate = new RestTemplate();
 		Long id = order.getOrderId();
-	    restTemplate.put("http://localhost:8085/api/orders/6",order);
+	    restTemplate.put("http://localhost:8085/api/orders/"+id,order);
+	}
+	
+	public void deleteOrder(Order order) {
+	
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.delete("http://localhost:8085/api/delete/"+order.getOrderId(),order);
 	}
 
 	

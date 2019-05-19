@@ -30,6 +30,11 @@
    		<input type ="text"  placeholder="Order Id" th:field="*{order1}">
    		<input type="submit" value="Get Order">
    		</form></td>
+   		<td><form method="post" th:action="@{/order/deleteorder}" th:object="${order}">
+   		<input type ="text"  placeholder="Order Id" th:field="*{orderId}">
+   		<input type="submit" value="Delete Order">
+   		</form></td>
+   		
    		</tr>
    </table>
    </div>
