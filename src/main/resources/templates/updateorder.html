@@ -38,11 +38,11 @@ body {font-family: "Lato", sans-serif}
                             <!--<div class="form-title " > Registration Form</div>-->
                              <div class="form-group">
                                 <label for="txtFname"><span class="req">* </span> OrderId: </label>
-                                <input class="form-control" type="text" name="orderId" id="txtFname" required="true" th:value="${order.orderId}"   readonly="readonly" />
+                                <input class="form-control" type="text" name="orderId" id="txtFname" required="true" th:value="${order.orderId}" th:field="*{orderId}"  readonly="readonly" />
                             </div>
                             <div class="form-group">
                                 <label for="txtFname"><span class="req">* </span> CustomerId: </label>
-                                <input class="form-control" type="text" name="customerId" id="txtFname" required="true"  th:value="${order.customerId}"   readonly="readonly"/>
+                                <input class="form-control" type="text" name="customerId" id="txtFname" required="true"  th:value="${order.customerId}" th:field="*{customerId}"  readonly="readonly"/>
                             </div>
                             <div  class="form-group">
                                 <label for="txtLname"><span class="req">* </span> TotalPrice: </label>
@@ -50,7 +50,7 @@ body {font-family: "Lato", sans-serif}
                             </div>
                              <div class="form-group">
                                 <label for="txtLname"><span class="req">* </span> ProductName: </label>
-                                <input class="form-control" type="text" name="productname" id="txtLname" required="true" th:value="${order.productName}"  readonly="readonly" />
+                                <input class="form-control" type="text" name="productname" id="txtLname" required="true" th:value="${order.productName}" th:field="*{productName}" readonly="readonly" />
                             </div>
                              <div class="form-group">
                                 <label for="txtLname"><span class="req">* </span> Price: </label>
